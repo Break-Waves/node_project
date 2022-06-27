@@ -9,7 +9,9 @@ module.exports = {
     port: "8888",
     open: true,
     compress: true,
-    liveReload: true
+    liveReload: true,
+    //服务端对history路由的支持
+    historyApiFallback: true
   },
 
   //设置模式

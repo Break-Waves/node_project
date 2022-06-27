@@ -11,6 +11,19 @@ module.exports = {
     filename: "./js/main.js"
   },
 
+  //loader的配置
+  module: {
+    rules: [
+      //我们刚开始路由中渲染的是html类型，需要使用html-loader
+      {
+        test: /\.html$/i,
+        use: [
+          'html-loader'
+        ]
+      }
+    ]
+  },
+
   //插件的配置
   plugins: [
     //生成html文件 并设置对应的参照模板
