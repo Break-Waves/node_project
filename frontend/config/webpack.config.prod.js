@@ -15,11 +15,21 @@ module.exports = {
   module: {
     rules: [
       //我们刚开始路由中渲染的是html类型，需要使用html-loader
-      {
+      /* {
         test: /\.html$/i,
         use: [
           'html-loader'
         ]
+      }, */
+
+      //ejs的loader
+      {
+        test: /\.ejs$/i,
+        loader: 'ejs-loader',
+        // 可以在模块当中使用data接受外部传入ejs的数据进行数据处理
+        options: {
+          variable: 'data',
+        }
       }
     ]
   },
@@ -41,6 +51,16 @@ module.exports = {
       }],
     })
   ],
+
+  resolve: {
+    //配置路径别名
+    alias: {
+      $v: path.resolve(__dirname, "../src/views")
+    },
+
+    //配置引入文件时 省略后缀,自动添加后缀的顺序
+    extensions: [".js", ".json", ".ejs"]
+  },
 
   mode: "production"
 }
